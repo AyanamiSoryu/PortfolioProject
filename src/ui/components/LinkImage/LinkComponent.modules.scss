@@ -1,0 +1,65 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #F5F5F5;
+  color: #202020;
+  transition: 150ms ease-out;
+  &:hover{
+    color: #F5F5F5;
+    background: #202020;
+  }
+  &:active{
+    color: #F5F5F5;
+    background: #202020;
+  }
+}
+
+.pic {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #F5F5F5;
+  color: #202020;
+  &:hover{
+    color: #F5F5F5;
+    background: #202020;
+  }
+  &:active{
+    color: #F5F5F5;
+    background: #202020;
+  }
+}
+
+.img {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #F5F5F5;
+  color: #202020;
+  &:hover{
+    color: #F5F5F5;
+    background: #202020;
+  }
+  &:active{
+    color: #F5F5F5;
+    background: #202020;
+  }
+}
+
+.download {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #F5F5F5;
+  color: #202020;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

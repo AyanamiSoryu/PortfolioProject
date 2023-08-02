@@ -1,5 +1,5 @@
-import PortfolioGrid from './PortfolioGrid'
+import { PortfolioGrid } from './PortfolioGrid';
 
-export * from './PortfolioGrid'
+export * from './PortfolioGrid';
 
-export default PortfolioGrid
+export default PortfolioGrid;

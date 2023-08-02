@@ -1,0 +1,33 @@
+.root {
+  width: 100% ;
+}
+
+.item {
+
+}
+
+.hello {
+  color: #202020;
+  font-family: Inter;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px; /* 121.429% */
+  letter-spacing: -0.59px;
+}
+
+.greet {
+  color: #BBB;
+  font-family: Inter;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px; /* 121.429% */
+  letter-spacing: -0.59px;
+}
+
+.svg {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px
+}
