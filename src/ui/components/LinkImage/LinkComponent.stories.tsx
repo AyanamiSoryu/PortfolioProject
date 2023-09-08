@@ -16,7 +16,7 @@ type Story = StoryObj<typeof LinkComponent>;
 export const Linked: Story = {
   args: {
     icon: <TimeZonesIcon fill='currentColor' />,
-    downloadName: false,
+    downloadName: undefined,
     href: 'https://pornhub.com'
     // 👇 The args you need here will depend on your component
   }

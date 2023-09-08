@@ -1,12 +1,13 @@
 import React from 'react';
 
+import DownloadIcon from '../Icon/downloadIcon.svg';
 import classNames from './LinkComponent.modules.scss';
 
 type ButtonLink = {
   href: string;
 };
 type ButtonDownloadLink = ButtonLink & {
-  downloadName: boolean;
+  downloadName: string;
 };
 
 export type SquareButtonProps = {
@@ -24,7 +25,11 @@ const SquareButton: React.FC<SquareButtonProps> = (props) => {
   const additionalProps = { ...linkProps, ...downloadProps };
   return (
     <Tag className={classNames.root} {...additionalProps}>
-      {isDownload && <div className={classNames.downloadIcon} />}
+      {isDownload && (
+        <div className={classNames.downloadIcon}>
+          <DownloadIcon />
+        </div>
+      )}
       {imgSvg}
     </Tag>
   );

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('./static/Inter-Regular.ttf') format('ttf');
+    /* Add your fonts if it necessary */
+}
+
+* {
+    font-family: "Inter";
+}

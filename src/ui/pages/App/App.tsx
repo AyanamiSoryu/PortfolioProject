@@ -1,20 +1,25 @@
-import './App.css';
+import '../../../assets/fonts/fonts.css';
 
 import React, { memo } from 'react';
 
 import portfolioMock from '../../../data/portfolioMock';
-import TimeZonesIcon from '../../components/Icon/timeZonesIcon.svg';
-import LinkComponent from '../../components/LinkImage/LinkComponent';
+import truePortfolioMock from '../../../data/truePortfolioMock';
+import ButtonWorkFile from '../../components/ButtonWorkFile/ButtonWorkFile';
+import FirstPage from '../../components/FirstPage/FirstPage';
 import { PortfolioGrid } from '../../components/PortfolioGrid';
 import Portfolio from '../../smart-components/Portfolio';
+import classNames from './App.module.scss';
 
 export interface AppProps {}
 
 const App: React.FC<AppProps> = () => (
-  <div className='it should be router or so on'>
-    <Portfolio />
-    <PortfolioGrid cases={portfolioMock} />
-    <LinkComponent icon={<TimeZonesIcon />} downloadName={false} href='https://pornhub.com' />
+  <div className={classNames.root}>
+    <div className={classNames.body}>
+      <Portfolio />
+      <FirstPage />
+      <ButtonWorkFile sections={[{ id: 'Work' }, { id: 'Files' }]} />
+      <PortfolioGrid cases={truePortfolioMock} />
+    </div>
   </div>
 );
 

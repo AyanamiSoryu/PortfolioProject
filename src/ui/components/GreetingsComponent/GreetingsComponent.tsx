@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Cv from '../Icon/cv.svg';
+import Cv from '../Icon/CVIcnon.svg';
 import EmptyTimezones from '../Icon/emptyTimezones.svg';
-import Info from '../Icon/Info.svg';
-import Instagram from '../Icon/instagram.svg';
-import Linkedin from '../Icon/linkedin.svg';
-import Timezones from '../Icon/Timezones.svg';
-// import LinkComponent from '../LinkImage/LinkComponent';
+import Info from '../Icon/infoIcon.svg';
+import Linkedin from '../Icon/linkedInIcon.svg';
+import Instagram from '../Icon/telegramIcon.svg';
+import Timezones from '../Icon/timeZonesIcon.svg';
+import LinkComponent from '../LinkImage/LinkComponent';
 import classNames from './GreetingsComponent.module.scss';
 
 const GreetingsComponent = () => {
@@ -19,15 +19,15 @@ const GreetingsComponent = () => {
         the large businesses
       </p>
       <div className={classNames.svg}>
-        <Cv />
+        <LinkComponent icon={<Info />} href='https://google.com' />
         <div style={{ background: '#EBEBEB', width: '1px', height: '56px' }} />
-        <Info />
-        <EmptyTimezones />
-        <EmptyTimezones />
+        <LinkComponent icon={<Timezones />} href='https://google.com' />
+        <LinkComponent icon={<EmptyTimezones />} />
+        <LinkComponent icon={<EmptyTimezones />} />
         <div style={{ background: '#EBEBEB', width: '1px', height: '56px' }} />
-        <Instagram />
-        <Linkedin />
-        <Timezones />
+        <LinkComponent icon={<Cv />} href='https://google.com' downloadName='Resume' />
+        <LinkComponent icon={<Instagram />} href='https://google.com' />
+        <LinkComponent icon={<Linkedin />} href='https://google.com' />
       </div>
     </div>
   );

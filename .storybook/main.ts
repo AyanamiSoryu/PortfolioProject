@@ -56,9 +56,22 @@ const config: StorybookConfig = {
         replaceAttrValues: {
           black: 'currentColor',
           "#000": 'currentColor',
+          "#202020": 'currentColor'
         }
       },
       loader: '@svgr/webpack',
+
+    });
+    config.module.rules.push({
+      test: /\.(woff|woff2|ttf|eot)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: 'fonts/[name].[hash].[ext]',
+          },
+        },
+      ],
     });
 
     return config;

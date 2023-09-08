@@ -31,7 +31,35 @@ export default {
             {
                 test: /.*\/src\/.*\.svg$/,
                 issuer: /\.[jt]sx?$/,
-                use: ['@svgr/webpack'],
+                options: {
+                    replaceAttrValues: {
+                        black: 'currentColor',
+                        "#000": 'currentColor',
+                        "#202020": 'currentColor'
+                    }
+                },
+                loader: '@svgr/webpack',
+            },
+            {
+                test: /\.(woff|woff2|ttf|eot)$/,
+                // use: [
+                //     {
+                //         loader: 'file-loader',
+                //         // loader: 'file?name=src/css/[name].[ext]',
+                //         options: {
+                //             name: 'fonts/[name].[hash].[ext]',
+                //         },
+                //     },
+                // ],
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
             },
         ],
     },
