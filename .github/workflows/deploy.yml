@@ -19,9 +19,9 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Webpack serve
+      - name: Build app
         run: npm run build
 
       - name: Deploying to GitHub Pages
