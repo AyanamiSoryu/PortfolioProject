@@ -3,7 +3,7 @@ name: Deploy on GitHub Pages
 on:
   push:
     branches:
-      - src  # Измените это на основную ветку вашего репозитория
+      - master  # Измените это на основную ветку вашего репозитория
 
 jobs:
   deploy:
@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Webpack serve
-        run: npx webpack serve  # Замените на ваш скрипт сборки
+        run: npm run build
 
       - name: Deploying to GitHub Pages
         run: |

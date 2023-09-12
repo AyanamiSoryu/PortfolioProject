@@ -8,6 +8,8 @@
     "eslint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx --cache",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "npx webpack serve",
+    "build": "npx webpack",
+    "deploy": "npx gh-pages -d ./dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -44,6 +46,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.13",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.0.0",
     "html-webpack-plugin": "^5.5.1",
     "sass": "^1.64.1",
     "sass-loader": "^13.2.2",
