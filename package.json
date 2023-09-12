@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://ayanamisoryu.github.io/PortfolioProject/",
+  "homepage": "git@git.drupal.org:project/PortfolioProject.git",
   "scripts": {
     "eslint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx --cache",
     "test": "echo \"Error: no test specified\" && exit 1",
