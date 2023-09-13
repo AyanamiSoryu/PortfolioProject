@@ -26,7 +26,7 @@ const Portfolio: React.FC<PortfolioProps> = () => {
 
   return (
     <div className={classNames.root}>
-      {isLoading && <div>Loading...</div>}
+      {/* {isLoading && <div>Loading...</div>} */}
       {shouldShowGrid && <PortfolioGrid cases={portfolioData} />}
     </div>
   );
