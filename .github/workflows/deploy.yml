@@ -3,7 +3,7 @@ name: Deploy on GitHub Pages
 on:
   push:
     branches:
-      - master  # Измените это на основную ветку вашего репозитория
+      - gh-pages  # Измените это на основную ветку вашего репозитория
 
 jobs:
   deploy:
