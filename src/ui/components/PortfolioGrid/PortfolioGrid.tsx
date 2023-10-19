@@ -116,7 +116,7 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
                     key={currentCase.id}
                     style={{ width: Math.floor(trueCaseWidth), height: trueCaseHeight }}>
                     <Image width='100%' height='100%' src={currentSource[0].src} />
-                    <InteractElem />
+                    <InteractElem href='https://pornhub.com' />
                   </div>
                 );
               }
