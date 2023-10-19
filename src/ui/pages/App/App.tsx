@@ -17,7 +17,7 @@ const App: React.FC<AppProps> = () => (
     <div className={classNames.body}>
       <Portfolio />
       <FirstPage />
-      <ButtonWorkFile sections={[{ id: 'Work' }, { id: 'Files' }]} />
+      {/* <ButtonWorkFile sections={[{ id: 'Work' }, { id: 'Files' }]} /> */}
       <PortfolioGrid cases={truePortfolioMock} />
     </div>
   </div>

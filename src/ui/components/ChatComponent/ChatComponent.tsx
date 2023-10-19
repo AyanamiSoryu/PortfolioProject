@@ -94,41 +94,42 @@ const ChatComponent: React.FC<ChatComponentProps> = (props: ChatComponentProps) 
     }
   };
 
-  const groupedRenderMessages = renderMessages.reduce((result: Array<Array<Message>>, message) => {
-    let groupOfMessages: Array<Message> = [];
-    const lastElementOfGroupOfMessages = groupOfMessages[groupOfMessages.length - 1];
-
-    if (message !== lastElementOfGroupOfMessages) {
-      result.push(groupOfMessages);
-      groupOfMessages = [];
-      groupOfMessages.push(message);
-      return result;
-    }
-    if (message === renderMessages[renderMessages.length - 1]) {
-      result.push(groupOfMessages);
-      return result;
-    }
-    groupOfMessages.push(message);
-    return result;
-  }, []);
-
-  console.log(groupedRenderMessages);
+  const groupRenderMessages = () => {
+    const groupedMessages: Array<Array<Message>> = [];
+    let group: Array<Message> = [];
+    renderMessages.forEach((message, index) => {
+      group.push(message);
+      if (renderMessages[index + 1] === undefined || renderMessages[index + 1].isIncome !== message.isIncome) {
+        groupedMessages.push(group);
+        group = [];
+      }
+    });
+    return groupedMessages;
+  };
 
   return (
     <div className={classNames.root}>
       <div className={classNames.title}>{chatTitle}</div>
       <div className={classNames.scroll} ref={chatContainerRef}>
         <div className={classNames.flex}>
-          {renderMessages.map((current) => {
-            const { id, text, isIncome } = current;
-            const Tail = isIncome ? TailBlack : TailWhite;
-            const tailClass = isIncome ? classNames.tailBlack : classNames.tailWhite;
+          {groupRenderMessages().map((group) => {
+            const firstMessage = group[0];
+            const groupType = firstMessage.isIncome ? classNames.userGroup : classNames.serverGroup;
             return (
-              <div key={id} className={isIncome ? classNames.userMessage : classNames.serverMessage}>
-                {text}
-                <div className={tailClass}>
-                  <Tail />
-                </div>
+              <div className={groupType}>
+                {group.map((current) => {
+                  const { id, text, isIncome } = current;
+                  const Tail = isIncome ? TailBlack : TailWhite;
+                  const tailClass = isIncome ? classNames.tailBlack : classNames.tailWhite;
+                  return (
+                    <div key={id} className={isIncome ? classNames.userMessage : classNames.serverMessage}>
+                      {text}
+                      <div className={tailClass}>
+                        <Tail />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             );
           })}

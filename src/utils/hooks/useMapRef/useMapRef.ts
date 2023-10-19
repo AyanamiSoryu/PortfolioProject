@@ -25,9 +25,6 @@ const useMapRef = <RefType>(): MapRef<RefType> => {
     const usedIdsSet = usedIdsSetRef.current;
     const map = mapOfRefs.current;
 
-    // your code here
-    // { ne: {}, tupi: {}, pozalysta: {}, dorogoy: {}, bratik: {} },
-    // Set<'ne', 'tupi'>;
     Object.keys(map).forEach((key) => {
       if (usedIdsSet.has(key)) {
         return;
@@ -43,22 +40,3 @@ const useMapRef = <RefType>(): MapRef<RefType> => {
 };
 
 export default useMapRef;
-
-// example
-// const list = [{id: 1}, {id: 2}, {id: 3}, {id: 4}];
-/* const Component = () => {
-  const mapRef = useMapRef<HtmlDivElement>();
-
-  useEffect(() => {
-    list.map((item) => {
-      const itemDiv = mapRef.get(item.id);
-      console.log('itemDiv height:', item.offsetHeight);
-    });
-  }, [list]);
-
-  return (
-    <div>
-      {list.map((item) => (<div ref={mapRef.use(item.id)} />))}
-    </div>
-  )
-} */

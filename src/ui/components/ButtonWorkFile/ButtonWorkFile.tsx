@@ -20,19 +20,6 @@ const Button: React.FC<ButtonSections> = (props) => {
 
   const refContainer = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   sections.forEach((item) => {
-  //     const itemDiv = mapRef.get(item.id);
-  //     if (itemDiv) {
-  //       console.log('itemDiv height:', itemDiv.current?.offsetHeight);
-  //     }
-  //   });
-  // }, [mapRef, sections]);
-
-  // const refElement = useMapRef().get(currentId);
-  // console.log(refElement, 'refElement');
-  // const rect = refElement ? refElement.getBoundingClientRect() : null;
-
   const handleClick = (itemId: string) => {
     setCurrentId(itemId);
   };
@@ -87,30 +74,3 @@ const Button: React.FC<ButtonSections> = (props) => {
 };
 
 export default Button;
-
-// const buttonReturner = () => {
-//   return useToggleButton === 0 ? (
-//     <div className={classNames.root}>
-//       <div className={classNames.active} onClick={handleClick}>
-//         Work
-//       </div>
-//       <div className={classNames.disable} onClick={handleClick}>
-//         Files
-//       </div>
-//     </div>
-//   ) : (
-//     <div className={classNames.root}>
-//       <div className={classNames.disable} onClick={handleClick}>
-//         Work
-//       </div>
-//       <div className={classNames.active} onClick={handleClick}>
-//         Files
-//       </div>
-//     </div>
-//   );
-// };
-
-// const handleClick = () => {
-//   console.log('Button clicked');
-//   return useToggleButton === 1 ? setToogleButton(0) : setToogleButton(1);
-// };

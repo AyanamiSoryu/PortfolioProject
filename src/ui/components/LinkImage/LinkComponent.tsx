@@ -12,10 +12,14 @@ type ButtonDownloadLink = ButtonLink & {
 
 export type SquareButtonProps = {
   icon: React.ReactNode;
+  tagClassName?: string;
+  id?: string;
+  selected: string;
+  onHover: Function;
 } & (ButtonLink | ButtonDownloadLink | {});
 
 const SquareButton: React.FC<SquareButtonProps> = (props) => {
-  const { icon: imgSvg } = props;
+  const { icon: imgSvg, tagClassName: tagClass, onHover: onMouse, id: buttonId, selected: requstedID } = props;
   const isLink = 'href' in props;
   const isDownload = 'downloadName' in props;
 
@@ -23,8 +27,13 @@ const SquareButton: React.FC<SquareButtonProps> = (props) => {
   const linkProps = isLink ? { href: props.href, target: '_blank' } : {};
   const downloadProps = isDownload ? { download: props.downloadName } : {};
   const additionalProps = { ...linkProps, ...downloadProps };
+
+  // console.log(props, 'WWOOOOOOOOOOOOOOOOOOWWWWWWWWWWWWW');
+
+  const ifClassExist = requstedID === buttonId ? classNames.focused : classNames.root;
+
   return (
-    <Tag className={classNames.root} {...additionalProps}>
+    <Tag className={ifClassExist} {...additionalProps} onMouseEnter={() => onMouse(`${buttonId}`)}>
       {isDownload && (
         <div className={classNames.downloadIcon}>
           <DownloadIcon />

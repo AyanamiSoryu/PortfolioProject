@@ -1,11 +1,15 @@
 .root {
   cursor: pointer;
   display: flex;
+  width: 52px;
+  height: 52px;
+  padding: 14px;
   justify-content: center;
   align-items: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  flex-shrink: 0;
+  border-radius: 100px;
+
+  //border-radius: 14px;
   background: #F5F5F5;
   color: #202020;
   transition: 150ms ease-out;
@@ -22,17 +26,3 @@
 .downloadIcon {
   position: absolute;
 }
-
-.focused {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: #202020;
-  color: #F5F5F5;
-  transition: 150ms ease-out;
-}
-

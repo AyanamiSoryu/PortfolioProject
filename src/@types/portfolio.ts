@@ -1,7 +1,10 @@
+import React from 'react';
+
 export interface ImageAlias {
   width: number;
   height: number;
   src: string;
+  interactive?: { id: string; element: React.FunctionComponent };
 }
 
 export interface Case {
