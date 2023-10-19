@@ -1,10 +1,11 @@
 import React from 'react';
 
+import ArrowButton from '../ui/components/ArrowButton/ArrowButton';
+
 export interface ImageAlias {
   width: number;
   height: number;
   src: string;
-  interactive?: { id: string; element: React.FunctionComponent };
 }
 
 export interface Case {
@@ -16,6 +17,7 @@ export interface Case {
   originWidth: number;
   originHeight: number;
   source: ImageAlias[];
+  interactive?: typeof ArrowButton;
 }
 
 export type Portfolio = Case[];

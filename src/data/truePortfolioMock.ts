@@ -1,4 +1,5 @@
 import { type Portfolio } from '../@types/portfolio';
+import ArrowButton from '../ui/components/ArrowButton/ArrowButton';
 import * as img from './imageMock/index';
 
 const {
@@ -215,7 +216,8 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 880,
-    source: [block_0Alias]
+    source: [block_0Alias],
+    interactive: ArrowButton
   },
   {
     id: '1',

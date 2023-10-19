@@ -103,11 +103,23 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
         return (
           <div className={classNames.item}>
             {group.map((currentCase) => {
-              // const currentCase = currentCaseArr[0];
+              const { interactive: InteractElem } = currentCase;
               const currentSource = currentCase.source;
               const currentCaseId = currentCase.id;
               const trueCaseWidth = caseSizeByIdMap[currentCaseId].width;
               const trueCaseHeight = caseSizeByIdMap[currentCaseId].height;
+
+              if (InteractElem) {
+                return (
+                  <div
+                    className={classNames.item}
+                    key={currentCase.id}
+                    style={{ width: Math.floor(trueCaseWidth), height: trueCaseHeight }}>
+                    <Image width='100%' height='100%' src={currentSource[0].src} />
+                    <InteractElem />
+                  </div>
+                );
+              }
               return (
                 <div
                   className={classNames.item}

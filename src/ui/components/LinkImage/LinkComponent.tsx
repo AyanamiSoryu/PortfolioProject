@@ -19,7 +19,7 @@ export type SquareButtonProps = {
 } & (ButtonLink | ButtonDownloadLink | {});
 
 const SquareButton: React.FC<SquareButtonProps> = (props) => {
-  const { icon: imgSvg, tagClassName: tagClass, onHover: onMouse, id: buttonId, selected: requstedID } = props;
+  const { icon: imgSvg, onHover: onMouse, id: buttonId, selected: requstedID } = props;
   const isLink = 'href' in props;
   const isDownload = 'downloadName' in props;
 

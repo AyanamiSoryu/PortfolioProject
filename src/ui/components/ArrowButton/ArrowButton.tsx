@@ -1,18 +1,17 @@
 import React from 'react';
 
+import ArrowGroup from '../Icon/arrowGroup.svg';
 import classNames from './ArrowButton.modules.scss';
 
 type ArrowButtonLink = {
   href: string;
 };
 
-export type SquareButtonProps = {
-  icon: React.ReactNode;
+export type RoundButtonProps = {
   id?: string;
 } & (ArrowButtonLink | {});
 
-const ArrowButton: React.FC<SquareButtonProps> = (props) => {
-  const { icon: imgSvg } = props;
+const ArrowButton: React.FC<RoundButtonProps> = (props) => {
   const isLink = 'href' in props;
   const isDownload = 'downloadName' in props;
 
@@ -23,7 +22,7 @@ const ArrowButton: React.FC<SquareButtonProps> = (props) => {
 
   return (
     <Tag className={classNames.root} {...additionalProps}>
-      {imgSvg}
+      <ArrowGroup />
     </Tag>
   );
 };
