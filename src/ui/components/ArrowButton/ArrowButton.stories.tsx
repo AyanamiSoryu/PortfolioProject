@@ -14,7 +14,6 @@ type Story = StoryObj<typeof ArrowButton>;
 
 export const Linked: Story = {
   args: {
-    icon: <ArrowSvg fill='currentColor' />,
     href: 'https://pornhub.com'
     // 👇 The args you need here will depend on your component
   }
