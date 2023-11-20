@@ -3,209 +3,209 @@ import ArrowButton from '../ui/components/ArrowButton/ArrowButton';
 import * as img from './imageMock/index';
 
 const {
-  block_0,
-  block_1,
-  block_2,
-  block_3,
-  block_4,
-  block_5,
-  block_6,
-  block_7,
-  block_8,
-  block_9,
-  block_10,
-  block_11,
-  block_12,
-  block_13,
-  block_14,
-  block_15,
-  block_16,
-  block_17,
-  block_18,
-  block_19,
-  block_20,
-  block_21,
-  block_22,
-  block_23,
-  block_24,
-  block_25,
-  block_26,
-  block_27,
-  block_28
+  block0,
+  block1,
+  block2,
+  block3,
+  block4,
+  block5,
+  block6,
+  block7,
+  block8,
+  block9,
+  block10,
+  block11,
+  block12,
+  block13,
+  block14,
+  block15,
+  block16,
+  block17,
+  block18,
+  block19,
+  block20,
+  block21,
+  block22,
+  block23,
+  block24,
+  block25,
+  block26,
+  block27,
+  block28
 } = img;
 
-const block_0Alias = {
+const block0Alias = {
   width: 1400,
   height: 880,
-  src: block_0
+  src: block0
 };
 
-const block_1Alias = {
+const block1Alias = {
   width: 1400,
   height: 788,
-  src: block_1
+  src: block1
 };
 
-const block_2Alias = {
+const block2Alias = {
   width: 456,
   height: 720,
-  src: block_2
+  src: block2
 };
 
-const block_3Alias = {
+const block3Alias = {
   width: 924,
   height: 520,
-  src: block_3
+  src: block3
 };
 
-const block_4Alias = {
+const block4Alias = {
   width: 1058,
   height: 636,
-  src: block_4
+  src: block4
 };
 
-const block_5Alias = {
+const block5Alias = {
   width: 322,
   height: 636,
-  src: block_5
+  src: block5
 };
 
-const block_6Alias = {
+const block6Alias = {
   width: 1400,
   height: 932,
-  src: block_6
+  src: block6
 };
 
-const block_7Alias = {
+const block7Alias = {
   width: 1400,
   height: 1255,
-  src: block_7
+  src: block7
 };
 
-const block_8Alias = {
+const block8Alias = {
   width: 1400,
   height: 932,
-  src: block_8
+  src: block8
 };
 
-const block_9Alias = {
+const block9Alias = {
   width: 1418,
   height: 814,
-  src: block_9
+  src: block9
 };
 
-const block_10Alias = {
+const block10Alias = {
   width: 690,
   height: 796,
-  src: block_10
+  src: block10
 };
 
-const block_11Alias = {
+const block11Alias = {
   width: 690,
   height: 796,
-  src: block_11
+  src: block11
 };
 
-const block_12Alias = {
+const block12Alias = {
   width: 1400,
   height: 780,
-  src: block_12
+  src: block12
 };
 
-const block_13Alias = {
+const block13Alias = {
   width: 1418,
   height: 814,
-  src: block_13
+  src: block13
 };
 
-const block_14Alias = {
+const block14Alias = {
   width: 1400,
   height: 842,
-  src: block_14
+  src: block14
 };
 
-const block_15Alias = {
+const block15Alias = {
   width: 708,
   height: 991,
-  src: block_15
+  src: block15
 };
 
-const block_16Alias = {
+const block16Alias = {
   width: 708,
   height: 991,
-  src: block_16
+  src: block16
 };
 
-const block_17Alias = {
+const block17Alias = {
   width: 1078,
   height: 654,
-  src: block_17
+  src: block17
 };
 
-const block_18Alias = {
+const block18Alias = {
   width: 320,
   height: 636,
-  src: block_18
+  src: block18
 };
 
-const block_19Alias = {
+const block19Alias = {
   width: 5600,
   height: 3368,
-  src: block_19
+  src: block19
 };
 
-const block_20Alias = {
+const block20Alias = {
   width: 1418,
   height: 998,
-  src: block_20
+  src: block20
 };
 
-const block_21Alias = {
+const block21Alias = {
   width: 344,
   height: 836,
-  src: block_21
+  src: block21
 };
 
-const block_22Alias = {
+const block22Alias = {
   width: 1054,
   height: 854,
-  src: block_22
+  src: block22
 };
 
-const block_23Alias = {
+const block23Alias = {
   width: 1418,
   height: 980,
-  src: block_23
+  src: block23
 };
 
-const block_24Alias = {
+const block24Alias = {
   width: 1418,
   height: 974,
-  src: block_24
+  src: block24
 };
 
-const block_25Alias = {
+const block25Alias = {
   width: 1400,
   height: 880,
-  src: block_25
+  src: block25
 };
 
-const block_26Alias = {
+const block26Alias = {
   width: 1400,
   height: 1280,
-  src: block_26
+  src: block26
 };
 
-const block_27Alias = {
+const block27Alias = {
   width: 1400,
   height: 1040,
-  src: block_27
+  src: block27
 };
 
-const block_28Alias = {
+const block28Alias = {
   width: 1400,
   height: 820,
-  src: block_28
+  src: block28
 };
 
 const truePortfolioMock: Portfolio = [
@@ -216,7 +216,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 880,
-    source: [block_0Alias],
+    source: [block0Alias],
     interactive: ArrowButton
   },
   {
@@ -226,7 +226,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 788,
-    source: [block_1Alias]
+    source: [block1Alias]
   },
   {
     id: '2',
@@ -235,7 +235,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 456,
     originHeight: 520,
-    source: [block_2Alias]
+    source: [block2Alias]
   },
   {
     id: '3',
@@ -244,7 +244,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 924,
     originHeight: 520,
-    source: [block_3Alias]
+    source: [block3Alias]
   },
   {
     id: '4',
@@ -253,7 +253,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 1058,
     originHeight: 636,
-    source: [block_4Alias]
+    source: [block4Alias]
   },
   {
     id: '5',
@@ -262,7 +262,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 322,
     originHeight: 636,
-    source: [block_5Alias]
+    source: [block5Alias]
   },
   {
     id: '6',
@@ -271,7 +271,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 932,
-    source: [block_6Alias]
+    source: [block6Alias]
   },
   {
     id: '7',
@@ -280,7 +280,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 1255,
-    source: [block_7Alias]
+    source: [block7Alias]
   },
   {
     id: '8',
@@ -289,7 +289,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 932,
-    source: [block_8Alias]
+    source: [block8Alias]
   },
   {
     id: '9',
@@ -298,7 +298,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1418,
     originHeight: 814,
-    source: [block_9Alias]
+    source: [block9Alias]
   },
   {
     id: '10',
@@ -307,7 +307,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 690,
     originHeight: 796,
-    source: [block_10Alias]
+    source: [block10Alias]
   },
   {
     id: '11',
@@ -316,7 +316,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 690,
     originHeight: 796,
-    source: [block_11Alias]
+    source: [block11Alias]
   },
   {
     id: '12',
@@ -325,7 +325,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 780,
-    source: [block_12Alias]
+    source: [block12Alias]
   },
   {
     id: '13',
@@ -334,7 +334,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1418,
     originHeight: 814,
-    source: [block_13Alias]
+    source: [block13Alias]
   },
   {
     id: '14',
@@ -343,7 +343,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 842,
-    source: [block_14Alias]
+    source: [block14Alias]
   },
   {
     id: '15',
@@ -352,7 +352,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 708,
     originHeight: 991,
-    source: [block_15Alias]
+    source: [block15Alias]
   },
   {
     id: '16',
@@ -361,7 +361,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 708,
     originHeight: 991,
-    source: [block_16Alias]
+    source: [block16Alias]
   },
   {
     id: '17',
@@ -370,7 +370,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 1078,
     originHeight: 654,
-    source: [block_17Alias]
+    source: [block17Alias]
   },
   {
     id: '18',
@@ -379,7 +379,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 320,
     originHeight: 636,
-    source: [block_18Alias]
+    source: [block18Alias]
   },
   {
     id: '19',
@@ -388,7 +388,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 5600,
     originHeight: 3368,
-    source: [block_19Alias]
+    source: [block19Alias]
   },
   {
     id: '20',
@@ -397,7 +397,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1418,
     originHeight: 998,
-    source: [block_20Alias]
+    source: [block20Alias]
   },
   {
     id: '21',
@@ -406,7 +406,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 344,
     originHeight: 836,
-    source: [block_21Alias]
+    source: [block21Alias]
   },
   {
     id: '22',
@@ -415,7 +415,7 @@ const truePortfolioMock: Portfolio = [
     size: 2,
     originWidth: 1054,
     originHeight: 854,
-    source: [block_22Alias]
+    source: [block22Alias]
   },
   {
     id: '23',
@@ -424,7 +424,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1418,
     originHeight: 980,
-    source: [block_23Alias]
+    source: [block23Alias]
   },
   {
     id: '24',
@@ -433,7 +433,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1418,
     originHeight: 974,
-    source: [block_24Alias]
+    source: [block24Alias]
   },
   {
     id: '25',
@@ -442,7 +442,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 880,
-    source: [block_25Alias]
+    source: [block25Alias]
   },
   {
     id: '26',
@@ -451,7 +451,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 1280,
-    source: [block_26Alias]
+    source: [block26Alias]
   },
   {
     id: '27',
@@ -460,7 +460,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 1044,
-    source: [block_27Alias]
+    source: [block27Alias]
   },
   {
     id: '28',
@@ -469,7 +469,7 @@ const truePortfolioMock: Portfolio = [
     size: 1,
     originWidth: 1400,
     originHeight: 820,
-    source: [block_28Alias]
+    source: [block28Alias]
   }
 ];
 export default truePortfolioMock;

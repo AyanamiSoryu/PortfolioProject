@@ -18,6 +18,7 @@ export interface Case {
   originHeight: number;
   source: ImageAlias[];
   interactive?: typeof ArrowButton;
+  onLoad?: React.Dispatch<React.SetStateAction<boolean | null>>;
 }
 
 export type Portfolio = Case[];

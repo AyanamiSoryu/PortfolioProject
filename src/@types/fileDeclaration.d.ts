@@ -22,4 +22,7 @@ declare module '*.scss' {
   export default classNames;
 }
 
+declare module '*.png';
+declare module '*.svg';
+declare module '*.jpeg';
 declare module '*.jpg';

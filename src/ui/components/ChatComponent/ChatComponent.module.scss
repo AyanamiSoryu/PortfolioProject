@@ -7,7 +7,7 @@
   display: flex;
   flex-flow: column;
   //width: 453px;
-  width: 33.8%;
+  min-width: 33.8%;
   //height: 640px;
   //height: 100%;
   border-radius: 24px;
@@ -35,7 +35,7 @@
   padding: 24px;
   align-items: flex-start;
   color: #202020;
-  font-family: Inter;
+  font-family: Inter, serif;
   font-size: 28px;
   font-style: normal;
   font-weight: 500;
@@ -128,7 +128,7 @@
   background: #FFF;
   color: #202020;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
+  font-family: Inter, serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 500;

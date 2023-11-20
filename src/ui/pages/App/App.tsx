@@ -2,9 +2,7 @@ import '../../../assets/fonts/fonts.css';
 
 import React, { memo } from 'react';
 
-import portfolioMock from '../../../data/portfolioMock';
-import truePortfolioMock from '../../../data/truePortfolioMock';
-import ButtonWorkFile from '../../components/ButtonWorkFile/ButtonWorkFile';
+import truePortfolioMock01 from '../../../data/truePortfolioMock01';
 import FirstPage from '../../components/FirstPage/FirstPage';
 import { PortfolioGrid } from '../../components/PortfolioGrid';
 import Portfolio from '../../smart-components/Portfolio';
@@ -17,8 +15,7 @@ const App: React.FC<AppProps> = () => (
     <div className={classNames.body}>
       <Portfolio />
       <FirstPage />
-      {/* <ButtonWorkFile sections={[{ id: 'Work' }, { id: 'Files' }]} /> */}
-      <PortfolioGrid cases={truePortfolioMock} />
+      <PortfolioGrid cases={truePortfolioMock01} />
     </div>
   </div>
 );

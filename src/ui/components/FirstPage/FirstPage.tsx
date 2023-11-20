@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-import ChatMock from '../../../data/chatMock';
 import TrueChatMock from '../../../data/trueChatMock';
+import useHtmlElementRefSize from '../../../utils/hooks/useHtmlElementRefSize';
 import ChatComponent from '../ChatComponent/ChatComponent';
 import GreetingsComponent from '../GreetingsComponent/GreetingsComponent';
 import classNames from './FirstPage.module.scss';
 
 const FirstPage: React.FC = () => {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const rootWidth = useHtmlElementRefSize(rootRef).width;
+
   return (
-    <div className={classNames.root}>
+    <div className={classNames.root} ref={rootRef}>
       <GreetingsComponent />
-      <ChatComponent spec={TrueChatMock.spec} onSubmit={TrueChatMock.onSubmit} title={TrueChatMock.title} />
+      {rootWidth > 948 && (
+        <ChatComponent spec={TrueChatMock.spec} onSubmit={TrueChatMock.onSubmit} title={TrueChatMock.title} />
+      )}
     </div>
   );
 };
