@@ -1,6 +1,9 @@
 import { RefObject, useCallback, useEffect, useState } from 'react';
 
-const useHtmlElementRefSize = (htmlElementRef: RefObject<HTMLElement>): { width: number; height: number } => {
+const useHtmlElementRefSize = (
+  htmlElementRef: RefObject<HTMLElement>,
+  refreshRate: number = 300
+): { width: number; height: number } => {
   const [width, setWidth] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
 
@@ -30,8 +33,13 @@ const useHtmlElementRefSize = (htmlElementRef: RefObject<HTMLElement>): { width:
 
     updateSize();
 
-    return () => resizeObserver.disconnect();
-  }, [htmlElementRef, updateSize]);
+    const intervalId = setInterval(updateSize, refreshRate);
+
+    return () => {
+      resizeObserver.disconnect();
+      clearInterval(intervalId);
+    };
+  }, [htmlElementRef, updateSize, refreshRate]);
 
   return { width, height };
 };

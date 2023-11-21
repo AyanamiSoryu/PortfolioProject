@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Cv from '../Icon/CVIcnon.svg';
 import Info from '../Icon/infoIcon.svg';
@@ -29,7 +30,9 @@ const GreetingsComponent = () => {
       </p>
       <div className={classNames.svg}>
         {links.map((link) => {
-          return <LinkComponent id={link.id} icon={link.icon} selected={selectedId} onHover={setSelectedId} />;
+          return (
+            <LinkComponent key={uuidv4()} id={link.id} icon={link.icon} selected={selectedId} onHover={setSelectedId} />
+          );
         })}
       </div>
     </div>

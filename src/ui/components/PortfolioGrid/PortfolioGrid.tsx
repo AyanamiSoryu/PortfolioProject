@@ -1,4 +1,5 @@
 import React, { useMemo, useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { Case, Portfolio } from '../../../@types/portfolio';
 import useHtmlElementRefSize from '../../../utils/hooks/useHtmlElementRefSize';
@@ -26,7 +27,7 @@ type SizeMap = Record<string, { width: number; height: number }>;
 
 export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
   const rootRef = useRef<HTMLDivElement>(null);
-  const { width: containerWidth} = useHtmlElementRefSize(rootRef);
+  const { width: containerWidth } = useHtmlElementRefSize(rootRef);
   const { cases } = props;
   const groupedCases = useMemo(() => {
     return cases.reduce<Array<Case[]>>((acc: any, currentCase): Array<Portfolio> => {
@@ -84,7 +85,7 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
     <div ref={rootRef} className={classNames.root}>
       {groupedCases.map((group) => {
         return (
-          <div className={classNames.item}>
+          <div key={uuidv4()} className={classNames.item}>
             {group.map((currentCase) => {
               const { interactive: InteractElem } = currentCase;
               const currentSource = currentCase.source;
@@ -110,6 +111,8 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
               }
 
               const { picOrder, setPicOrder } = onLoadUtility();
+              const isCanLoadNextImage =
+                picOrder !== currentSource.length - 1 && containerWidth > 940 ? picOrder + 1 : picOrder;
 
               return (
                 <div
@@ -120,9 +123,7 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
                     width='100%'
                     height='100%'
                     src={currentSource[picOrder].src}
-                    loadingStatusCheck={() =>
-                      setPicOrder(picOrder !== currentSource.length - 1 ? picOrder + 1 : picOrder)
-                    }
+                    loadingStatusCheck={() => setPicOrder(isCanLoadNextImage)}
                   />
                 </div>
               );

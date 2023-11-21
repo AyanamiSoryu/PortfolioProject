@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 
 import { type Portfolio as PortfolioData } from '../../../@types/portfolio';
-import portfolioMock from '../../../data/portfolioMock';
+import truePortfolioMock01 from '../../../data/truePortfolioMock01';
 import { PortfolioGrid } from '../../components/PortfolioGrid';
 import classNames from './Portfolio.module.scss';
 
@@ -13,7 +13,7 @@ const Portfolio: React.FC<PortfolioProps> = () => {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      setPortfolioData(portfolioMock);
+      setPortfolioData(truePortfolioMock01);
       setIsLoading(false);
     }, 3000);
 

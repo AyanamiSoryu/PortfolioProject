@@ -1,6 +1,6 @@
-import img1 from './output_800x329.jpg';
-import img2 from './output_1280x527.jpg';
-import img3 from './output_4060x1672.jpg';
+import img1 from './output_800x329.png';
+import img2 from './output_1280x527.png';
+import img3 from './output_4060x1672.png';
 
 const resultAlias = [
   {
