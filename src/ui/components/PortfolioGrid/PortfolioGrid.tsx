@@ -71,16 +71,6 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
     return result;
   }, [groupedCases, containerWidth]);
 
-  // const containerWidth = 1000;
-  // const availableWidth = containerWidth - (elementsInGroup - 1) * offset;
-  // const elementsHeight = groupedCases.reduce(
-  //   (acc, group) => {
-  //     const groupCaseId = group[0].id;
-  //     return acc + caseSizeByIdMap[groupCaseId].height;
-  //   },
-  //   (groupedCases.length - 1) * GRID_ELEMENTS_MARGIN
-  // );
-
   return (
     <div ref={rootRef} className={classNames.root}>
       {groupedCases.map((group) => {
@@ -92,27 +82,10 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
               const currentCaseId = currentCase.id;
               const trueCaseWidth = caseSizeByIdMap[currentCaseId].width;
               const trueCaseHeight = caseSizeByIdMap[currentCaseId].height;
-
-              if (InteractElem) {
-                return (
-                  <div
-                    className={classNames.item}
-                    key={currentCase.id}
-                    style={{ width: Math.floor(trueCaseWidth), height: trueCaseHeight }}>
-                    <Image
-                      width='100%'
-                      height='100%'
-                      src={currentSource[0].src}
-                      // loadingStatusCheck={setLoadingStatus(loadingStatus + 1)}
-                    />
-                    <InteractElem />
-                  </div>
-                );
-              }
-
               const { picOrder, setPicOrder } = onLoadUtility();
               const isCanLoadNextImage =
                 picOrder !== currentSource.length - 1 && containerWidth > 940 ? picOrder + 1 : picOrder;
+              const isInteract = InteractElem ? <InteractElem /> : null;
 
               return (
                 <div
@@ -125,6 +98,7 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
                     src={currentSource[picOrder].src}
                     loadingStatusCheck={() => setPicOrder(isCanLoadNextImage)}
                   />
+                  {isInteract}
                 </div>
               );
             })}

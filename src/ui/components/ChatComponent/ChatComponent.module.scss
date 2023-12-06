@@ -9,6 +9,7 @@
   //width: 453px;
   min-width: 33.8%;
   max-width: 33.8%;
+  //width: 100%;
   //height: 640px;
   //height: 100%;
   border-radius: 24px;
@@ -167,4 +168,11 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
+}
+
+@media screen and (max-width: 988px) {
+  .root {
+    width: 100%;
+    max-width: 100%;
+  }
 }

@@ -1,0 +1,28 @@
+.root {
+  position: absolute;
+  display: flex;
+  right: 20px;
+  top: 20px
+}
+
+.pic {
+  border-radius: 100px;
+  background: #FFF;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  //padding: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 300ms ease-out;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.04);
+  &:hover{
+    color: #F5F5F5;
+    background: #282828;
+  }
+  &:active{
+    color: #F5F5F5;
+    background: #343434;
+  }
+}

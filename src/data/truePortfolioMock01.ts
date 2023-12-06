@@ -1,4 +1,6 @@
 import { type Portfolio } from '../@types/portfolio';
+import Bus from '../ui/components/Bus/Bus';
+import Pen from '../ui/components/Pen/Pen';
 import img0 from './newImageMock/block 2/imageAlias';
 import img1 from './newImageMock/block 3/pic 1/imageAlias';
 import img2 from './newImageMock/block 3/pic 2/imageAlias';
@@ -36,7 +38,8 @@ const truePortfolioMock01: Portfolio = [
     description: '../../../src/data/imageMock01/Block 2/output_5464x3072.jpg',
     originWidth: 5464,
     originHeight: 3072,
-    source: img0
+    source: img0,
+    interactive: Bus
   },
   {
     id: '1',
@@ -216,7 +219,8 @@ const truePortfolioMock01: Portfolio = [
     description: '../../../src/data/imageMock01/Block 17/output_5600x2712.png',
     originWidth: 5600,
     originHeight: 2712,
-    source: img20
+    source: img20,
+    interactive: Pen
   },
   {
     id: '21',

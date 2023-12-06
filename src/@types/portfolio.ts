@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ArrowButton from '../ui/components/ArrowButton/ArrowButton';
+import Bus from '../ui/components/Bus/Bus';
 
 export interface ImageAlias {
   width: number;
@@ -17,7 +17,7 @@ export interface Case {
   originWidth: number;
   originHeight: number;
   source: ImageAlias[];
-  interactive?: typeof ArrowButton;
+  interactive?: typeof Bus;
   onLoad?: React.Dispatch<React.SetStateAction<boolean | null>>;
 }
 

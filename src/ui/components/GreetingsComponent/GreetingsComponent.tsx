@@ -17,11 +17,13 @@ const links = [
   { id: 'Linkedin', icon: <Linkedin /> }
 ];
 
-const GreetingsComponent = () => {
+const GreetingsComponent = (props: { children?: JSX.Element }) => {
+  const { children } = props;
   const [selectedId, setSelectedId] = useState<string>('Info');
 
   return (
     <div className={classNames.root}>
+      <div className={classNames.children}>{children}</div>
       <h2 className={classNames.hello}>hello!</h2>
       <p className={classNames.greet}>
         i’m a digital designer experienced in creating visually strong interfaces, websites and design systems. i work

@@ -15,7 +15,7 @@ type ChatSpec = Array<{
 
 type FormData = Record<string, string>;
 
-type ChatComponentProps = {
+export type ChatComponentProps = {
   spec: ChatSpec;
   onSubmit: (formData: FormData) => void;
   title: string;

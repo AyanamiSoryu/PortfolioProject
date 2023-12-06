@@ -1,0 +1,28 @@
+.root {
+  position: absolute;
+  top: 73.5%;
+  left: 17%;
+  width: 60%;
+
+}
+
+.scroll {
+  display: flex;
+
+}
+
+.pic {
+  display: flex;
+  width: 25%;
+  flex-shrink: 0;
+  transition: 1000ms ease-out;
+}
+
+.arrow {
+  display: flex;
+  width: 10%;
+  height: 10%;
+  margin-top: 1%;
+  flex-shrink: 0;
+  transition: 1000ms ease-out;
+}
