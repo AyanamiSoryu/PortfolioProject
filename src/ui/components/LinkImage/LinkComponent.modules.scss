@@ -36,3 +36,14 @@
   transition: 150ms ease-out;
 }
 
+@media screen and (max-width: 988px) {
+  .root {
+    width: 48px;
+    height: 48px;
+  }
+  .focused {
+    width: 48px;
+    height: 48px;
+  }
+}
+

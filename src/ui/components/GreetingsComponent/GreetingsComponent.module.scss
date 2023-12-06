@@ -48,3 +48,9 @@
   flex-wrap: nowrap;
   gap: 12px;
 }
+
+@media screen and (max-width: 988px) {
+  .root {
+    padding: 20px;
+  }
+}
