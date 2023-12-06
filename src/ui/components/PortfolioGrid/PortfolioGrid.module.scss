@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin: 24px;
+  margin: 20px;
 }
 
 .item {
@@ -11,4 +11,13 @@
   gap: 20px
 }
 
+@media screen and (max-width: 988px) {
+  .root {
+    gap: 12px;
+    margin: 12px;
+  }
+  .item {
+    gap: 12px;
+  }
+}
 
