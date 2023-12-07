@@ -12,7 +12,7 @@ import classNames from './GreetingsComponent.module.scss';
 const links = [
   { id: 'Info', icon: <Info /> },
   { id: 'Timezones', icon: <Timezones /> },
-  { id: 'Cv', icon: <Cv /> },
+  { id: 'Cv', icon: <Cv />, downloadName: 'google.com' },
   { id: 'Instagram', icon: <Instagram /> },
   { id: 'Linkedin', icon: <Linkedin /> }
 ];
@@ -32,6 +32,18 @@ const GreetingsComponent = (props: { children?: JSX.Element }) => {
       </p>
       <div className={classNames.svg}>
         {links.map((link) => {
+          if (link.downloadName) {
+            return (
+              <LinkComponent
+                key={uuidv4()}
+                id={link.id}
+                icon={link.icon}
+                selected={selectedId}
+                onHover={setSelectedId}
+                downloadName={link.downloadName}
+              />
+            );
+          }
           return (
             <LinkComponent key={uuidv4()} id={link.id} icon={link.icon} selected={selectedId} onHover={setSelectedId} />
           );

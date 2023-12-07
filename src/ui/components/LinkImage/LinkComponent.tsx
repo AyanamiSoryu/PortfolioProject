@@ -32,6 +32,22 @@ const SquareButton: React.FC<SquareButtonProps> = (props) => {
 
   const ifClassExist = requstedID === buttonId ? classNames.focused : classNames.root;
 
+  if (requstedID === buttonId) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Tag className={ifClassExist} {...additionalProps} onMouseEnter={() => onMouse(`${buttonId}`)}>
+          {isDownload && (
+            <div className={classNames.downloadIcon}>
+              <DownloadIcon />
+            </div>
+          )}
+          {imgSvg}
+        </Tag>
+        <div className={classNames.dot} />
+      </div>
+    );
+  }
+
   return (
     <Tag className={ifClassExist} {...additionalProps} onMouseEnter={() => onMouse(`${buttonId}`)}>
       {isDownload && (

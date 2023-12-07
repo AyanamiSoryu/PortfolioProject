@@ -36,6 +36,17 @@
   transition: 150ms ease-out;
 }
 
+.dot {
+  display: flex;
+  align-self: center;
+  margin-top: 8px;
+  width: 4px;
+  height: 4px;
+  flex-shrink: 0;
+  background: #202020;
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 988px) {
   .root {
     width: 48px;
