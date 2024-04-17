@@ -3,8 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { Case, Portfolio } from '../../../@types/portfolio';
 import useHtmlElementRefSize from '../../../utils/hooks/useHtmlElementRefSize';
-import onLoadUtility from '../../../utils/OnLoadUtilit/OnLoadUtility';
-import Image from '../imageComponent/image';
+import ProgressiveImage from '../../../utils/ProgressiveImage/ProgressiveImage';
 import classNames from './PortfolioGrid.module.scss';
 
 const GRID_ELEMENTS_MARGIN = 20;
@@ -82,9 +81,6 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
               const currentCaseId = currentCase.id;
               const trueCaseWidth = caseSizeByIdMap[currentCaseId].width;
               const trueCaseHeight = caseSizeByIdMap[currentCaseId].height;
-              const { picOrder, setPicOrder } = onLoadUtility();
-              const isCanLoadNextImage =
-                picOrder !== currentSource.length - 1 && containerWidth > 940 ? picOrder + 1 : picOrder;
               const isInteract = InteractElem ? <InteractElem /> : null;
 
               return (
@@ -92,11 +88,10 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = (props) => {
                   className={classNames.item}
                   key={currentCase.id}
                   style={{ width: Math.floor(trueCaseWidth), height: trueCaseHeight }}>
-                  <Image
-                    width='100%'
-                    height='100%'
-                    src={currentSource[picOrder].src}
-                    loadingStatusCheck={() => setPicOrder(isCanLoadNextImage)}
+                  <ProgressiveImage
+                    srcLow={currentSource[0].src}
+                    srcHigh={containerWidth > 940 ? currentSource[2].src : currentSource[1].src}
+                    alt='Description'
                   />
                   {isInteract}
                 </div>

@@ -10,14 +10,16 @@ import classNames from './App.module.scss';
 
 export interface AppProps {}
 
-const App: React.FC<AppProps> = () => (
-  <div className={classNames.root}>
-    <div className={classNames.body}>
-      <Portfolio />
-      <FirstPage />
-      <PortfolioGrid cases={truePortfolioMock01} />
+const App: React.FC<AppProps> = () => {
+  return (
+    <div className={classNames.root}>
+      <div className={classNames.body}>
+        <Portfolio />
+        <FirstPage />
+        <PortfolioGrid cases={truePortfolioMock01} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default memo(App);

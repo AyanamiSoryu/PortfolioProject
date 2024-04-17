@@ -25,6 +25,10 @@
   display: block;
   margin-top: auto;
   scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar {
+    display: none;
+  };
   //height: 70%;
 }
 

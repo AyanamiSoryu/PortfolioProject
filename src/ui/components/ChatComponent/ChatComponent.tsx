@@ -116,7 +116,7 @@ const ChatComponent: React.FC<ChatComponentProps> = (props: ChatComponentProps) 
             const firstMessage = group[0];
             const groupType = firstMessage.isIncome ? classNames.userGroup : classNames.serverGroup;
             return (
-              <div className={groupType}>
+              <div className={groupType} key={uuidv4()}>
                 {group.map((current) => {
                   const { id, text, isIncome } = current;
                   const Tail = isIncome ? TailBlack : TailWhite;
