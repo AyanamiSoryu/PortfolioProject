@@ -1,0 +1,126 @@
+// Terminal.module.scss
+
+.terminal {
+  //display: flex;
+  background-color: #2c001e; /* Цвет фона терминала */
+  color: #eeeeee; /* Цвет текста в терминале */
+  font-family: 'Ubuntu Mono', monospace; /* Шрифт терминала */
+  font-size: 18px; /* Размер текста */
+  padding: 20px; /* Внутренние отступы */
+  overflow-y: scroll; /* Включение прокрутки */
+  height: 300px; /* Высота терминала */
+  flex-wrap: nowrap;
+}
+
+.terminalHeader {
+  height: 50px;
+  width: 100%;
+  background-color: #121212;
+}
+
+.root {
+  border-radius: 24px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.input {
+  //width: 100%;
+  //max-width: 100%;
+  text-wrap: normal;
+  caret-color: transparent;
+  caret-shape: block;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: #a9c6c1;
+  font-family: 'Ubuntu Mono', monospace; /* Шрифт терминала */
+  font-size: 18px; /* Размер текста */
+  //overflow-y: scroll; /* Включение прокрутки */
+  padding-left: 12px;
+}
+
+.user {
+  font-family: "Ubuntu Mono B", monospace; /* Шрифт терминала */
+  font-size: 18px; /* Размер текста */
+  color: #26a719; /* Цвет команд */
+}
+
+.userWhite {
+  font-family: "Ubuntu Mono B", monospace; /* Шрифт терминала */
+  font-size: 18px; /* Размер текста */
+  color: #a9c6c1;
+}
+
+.userBlue {
+  font-family: "Ubuntu Mono B", monospace; /* Шрифт терминала */
+  font-size: 18px; /* Размер текста */
+  color: #0089f6;
+}
+
+.terminal__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0; /* Убираем внешние отступы */
+  padding: 0; /* Убираем внутренние отступы */
+}
+
+/* Стили для текста в терминале */
+.terminal__content span {
+  display: inline-block;
+  padding: 2px;
+}
+
+/* Стили для команд в терминале */
+.terminal__content .command {
+  color: #8abeb7; /* Цвет команд */
+}
+
+/* Стили для ответов в терминале */
+.terminal__content .response {
+  color: #a9c6c1; /* Цвет ответов */
+}
+
+// Terminal.module.scss
+
+.blinkingCaret {
+  animation: blink-caret 1s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #eeeeee; /* Цвет каретки */
+  }
+}
+
+@media screen and (max-width: 988px) {
+  .root {
+    margin: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .input {
+    font-size: 10px;
+  }
+
+  .user {
+    font-size: 10px;
+  }
+
+  .userBlue {
+    font-size: 10px;
+  }
+
+  .userWhite {
+    font-size: 10px;
+  }
+}
+

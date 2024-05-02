@@ -2,9 +2,13 @@ import '../../../assets/fonts/fonts.css';
 
 import React, { memo } from 'react';
 
-import truePortfolioMock01 from '../../../data/truePortfolioMock01';
+// import truePortfolioMock01 from '../../../data/truePortfolioMock01';
+import CodePenEmbed from '../../components/CodePen/CodePen';
 import FirstPage from '../../components/FirstPage/FirstPage';
-import { PortfolioGrid } from '../../components/PortfolioGrid';
+import InfoTabs from '../../components/InfoTabs/InfoTabs';
+// import { PortfolioGrid } from '../../components/PortfolioGrid';
+// import SeeMoreButton from '../../components/SeeMoreButton/SeeMoreButton';
+import Terminal from '../../components/Terminal/Terminal';
 import Portfolio from '../../smart-components/Portfolio';
 import classNames from './App.module.scss';
 
@@ -16,7 +20,11 @@ const App: React.FC<AppProps> = () => {
       <div className={classNames.body}>
         <Portfolio />
         <FirstPage />
-        <PortfolioGrid cases={truePortfolioMock01} />
+        <InfoTabs />
+        {/* <SeeMoreButton /> */}
+        <Terminal />
+        <CodePenEmbed />
+        {/* <PortfolioGrid cases={truePortfolioMock01} /> */}
       </div>
     </div>
   );

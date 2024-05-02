@@ -1,0 +1,210 @@
+.root {
+  display: flex;
+  //width: 100%;
+  //flex: 1;
+  flex-direction: row;
+  margin: 20px;
+  gap: 20px
+}
+
+.firstTab {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: calc(40vw - 20px);
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.stackNames {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  //padding-left: 20px;
+  //padding-right: 20px;
+}
+
+.secondTab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+  height: 300px;
+  width: calc(60vw - 20px);
+  border-radius: 24px;
+  overflow: hidden;
+  gap: 0;
+  //padding-right: 24px;
+  //padding-left: 24px;
+}
+
+.svg {
+  width: 80px;
+  align-content: center;
+}
+
+%icons {
+  transition: all 0.3s ease;
+  //position: absolute;
+  display: flex;
+  flex-shrink: 1;
+  height: 100%;
+  width: calc((60vw - 30px) / 6);
+  z-index: 1;
+  background-color: transparent;
+  position: relative;
+  justify-content: center;
+
+  &:after {
+    position: absolute;
+    //display: flex;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #663dff;
+    border-radius: 5px;
+    box-shadow:inset 2px 2px 2px 0 rgba(255,255,255,.5),
+    7px 7px 20px 0 rgba(0,0,0,.1),
+    4px 4px 5px 0 rgba(0,0,0,.1);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background-color: #1ea7fd;
+  }
+  &:hover:after {
+    left: 0;
+    width: 100%;
+  }
+  &:active {
+    top: 2px;
+  }
+}
+
+.iconsReact {
+  @extend %icons;
+  &:hover {
+    background-color: #18bcee;
+  }
+  &:after {
+    background-color: #202020;
+  }
+}
+
+.iconsJS {
+  @extend %icons;
+  &:hover {
+    background-color: #f8db3e;
+  }
+  &:after {
+    background-color: #feb04a;
+  }
+}
+
+.iconsRedux {
+  @extend %icons;
+  &:hover {
+    background-color: #794cc0;
+  }
+  &:after {
+    background-color: #303030;
+  }
+}
+
+.iconsType {
+
+  @extend %icons;
+  &:hover {
+    background-color: #794cc0;
+  }
+  &:after {
+    background-color: #0076c6;
+  }
+}
+
+.iconsHTML {
+  @extend %icons;
+  &:hover {
+    background-color: #e44d26;
+  }
+  &:after {
+    background-color: #f16529;
+  }
+}
+
+.iconsCSS {
+  @extend %icons;
+  &:hover {
+    background-color: #214ce5;
+  }
+  &:after {
+    background-color: #2465f1;
+  }
+}
+
+.text {
+  //padding-top: 10px;
+  overflow-wrap: break-word;
+  position: relative;
+  align-self: flex-start;
+  //max-width: 80%;
+  color: #868992;
+  font-family: Inter, serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 137.5% */
+  letter-spacing: -0.18px;
+}
+
+.h3 {
+  transition: all 0.3s ease;
+  color: #202020;
+  margin: 0;
+  font-family: Inter, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px; /* 121.429% */
+  letter-spacing: -0.59px;
+
+  //&:hover {
+  //  font-size: 25px;
+  //}
+}
+
+@media screen and (max-width: 988px) {
+  .root {
+    gap: 12px;
+    margin: 12px;
+    flex-direction: column;
+  }
+
+  .h3 {
+    font-size: 17px;
+  }
+
+  .firstTab {
+    width: calc(100vw - 65px);
+    height: 300px;
+  }
+
+  .secondTab {
+    height: 150px;
+    width: 100%;
+  }
+
+  %icons {
+    width: calc((100vw - 20px) / 6)
+  }
+}

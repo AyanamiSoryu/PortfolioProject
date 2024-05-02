@@ -1,0 +1,50 @@
+.root {
+  display: flex;
+  width: 100%;
+  //flex: 1;
+  flex-direction: column;
+  //align-items: center;
+  //justify-items: center;
+}
+
+.button {
+  width: 50%;
+  height: 50px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  background: #F5F5F5;
+  transition: 150ms ease-out;
+  cursor: pointer;
+  box-shadow:
+          inset 0 0 2px 0 rgba(255,255,255,.5),
+          7px 7px 20px 0 rgba(0,0,0,.1),
+          4px 4px 5px 0 rgba(0,0,0,.1);
+
+  &:hover {
+    background: #202020;
+    .text {
+      color: #F5F5F5;
+    }
+  }
+  &:active {
+    background: #121212;
+  }
+}
+
+.text {
+  transition: 150ms ease-out;
+  color: #202020;
+  margin: 0;
+  font-family: Inter, serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px; /* 121.429% */
+  letter-spacing: -0.59px;
+
+}
+
+

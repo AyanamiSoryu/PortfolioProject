@@ -5,6 +5,7 @@ import useHtmlElementRefSize from '../../../utils/hooks/useHtmlElementRefSize';
 import ChatButton from '../ChatButton/ChatButton';
 import ChatComponent from '../ChatComponent/ChatComponent';
 import GreetingsComponent from '../GreetingsComponent/GreetingsComponent';
+import ArrowDown from '../Icon/Drop_down_phone.svg';
 import classNames from './FirstPage.module.scss';
 
 const FirstPage: React.FC = () => {
@@ -15,14 +16,19 @@ const FirstPage: React.FC = () => {
 
   if (isMobile) {
     return (
-      <div className={classNames.root} ref={rootRef}>
-        <GreetingsComponent />
-        <div className={classNames.mobileChat} style={{ transform: `translate(${isActive ? 0 : 1000}px)` }}>
-          <ChatComponent spec={TrueChatMock.spec} onSubmit={TrueChatMock.onSubmit} title={TrueChatMock.title} />
+      <>
+        <div className={classNames.root} ref={rootRef}>
+          <GreetingsComponent />
+          <div className={classNames.mobileChat} style={{ transform: `translate(${isActive ? 0 : 1000}px)` }}>
+            <ChatComponent spec={TrueChatMock.spec} onSubmit={TrueChatMock.onSubmit} title={TrueChatMock.title} />
+          </div>
+          {/* <ChatButton spec={TrueChatMock.spec} onSubmit={TrueChatMock.onSubmit} title={TrueChatMock.title} /> */}
+          <ChatButton setState={setActive} />
         </div>
-        {/* <ChatButton spec={TrueChatMock.spec} onSubmit={TrueChatMock.onSubmit} title={TrueChatMock.title} /> */}
-        <ChatButton setState={setActive} />
-      </div>
+        <div style={{ width: '40px', height: '40px', marginRight: 'auto', marginLeft: 'auto' }}>
+          <ArrowDown />
+        </div>
+      </>
     );
   }
   return (
