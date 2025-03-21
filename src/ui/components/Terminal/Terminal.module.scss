@@ -1,32 +1,41 @@
 // Terminal.module.scss
 
+.root {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  overflow: hidden;
+  min-width: 33.8%;
+  max-width: 33.8%;
+  min-height: 600px;
+  height: calc(50vh - 40px);
+}
+
 .terminal {
-  //display: flex;
-  background-color: #2c001e; /* Цвет фона терминала */
-  color: #eeeeee; /* Цвет текста в терминале */
-  font-family: 'Ubuntu Mono', monospace; /* Шрифт терминала */
-  font-size: 18px; /* Размер текста */
-  padding: 20px; /* Внутренние отступы */
-  overflow-y: scroll; /* Включение прокрутки */
-  height: 300px; /* Высота терминала */
-  flex-wrap: nowrap;
+  display: block;
+  background-color: #2c001e;
+  color: #eeeeee;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 18px;
+  padding: 20px;
+  overflow-y: scroll;
+  height: 100%;
+  //flex-wrap: nowrap;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.terminal::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
 }
 
 .terminalHeader {
-  height: 50px;
-  width: 100%;
+  height: 100px;
+  //width: 100%;
   background-color: #121212;
 }
 
-.root {
-  border-radius: 24px;
-  overflow: hidden;
-  margin: 20px;
-}
-
 .input {
-  //width: 100%;
-  //max-width: 100%;
   text-wrap: normal;
   caret-color: transparent;
   caret-shape: block;
@@ -38,9 +47,8 @@
   -moz-appearance: none;
   appearance: none;
   color: #a9c6c1;
-  font-family: 'Ubuntu Mono', monospace; /* Шрифт терминала */
-  font-size: 18px; /* Размер текста */
-  //overflow-y: scroll; /* Включение прокрутки */
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 18px;
   padding-left: 12px;
 }
 
@@ -100,9 +108,30 @@
   }
 }
 
+//@media screen and (max-width: 988px) {
+//  .root {
+//    margin: 12px;
+//  }
+//}
+
+//@media screen and (max-width: 1067px) {
+//  //.terminalHeader {
+//  //  height: 100px;
+//  //}
+//
+//  .root {
+//    width: auto;
+//  }
+//
+//  .terminal {
+//    height: 500px;
+//  }
+//}
+
 @media screen and (max-width: 988px) {
   .root {
-    margin: 12px;
+    width: 100%;
+    max-width: 100%;
   }
 }
 

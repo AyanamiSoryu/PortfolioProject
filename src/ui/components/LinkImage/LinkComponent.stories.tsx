@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import * as https from 'https';
+import React from 'react';
 
 import TimeZonesIcon from '../Icon/timeZonesIcon.svg';
 import LinkComponent from './LinkComponent';
@@ -17,7 +17,7 @@ export const Linked: Story = {
   args: {
     icon: <TimeZonesIcon fill='currentColor' />,
     downloadName: undefined,
-    href: 'https://pornhub.com'
+    href: 'https://google.com'
     // 👇 The args you need here will depend on your component
   }
 };

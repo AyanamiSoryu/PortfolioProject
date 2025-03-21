@@ -2,6 +2,7 @@
   display: flex;
   //width: 100%;
   //flex: 1;
+  min-height: 200px;
   flex-direction: row;
   margin: 20px;
   gap: 20px
@@ -10,12 +11,12 @@
 .firstTab {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  //height: 300px;
   width: calc(40vw - 20px);
   background: #FFFFFF;
   border-radius: 24px;
   padding-left: 20px;
-  padding-right: 20px;
+  //padding-right: 20px;
 }
 
 .stackNames {
@@ -36,7 +37,7 @@
   justify-content: space-between;
   align-items: center;
   background: #FFFFFF;
-  height: 300px;
+  //height: 300px;
   width: calc(60vw - 20px);
   border-radius: 24px;
   overflow: hidden;
@@ -45,10 +46,20 @@
   //padding-left: 24px;
 }
 
+//.svg {
+//  width: 80px;
+//  align-content: center;
+//}
+
 .svg {
-  width: 80px;
-  align-content: center;
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 %icons {
   transition: all 0.3s ease;
@@ -195,7 +206,7 @@
   }
 
   .firstTab {
-    width: calc(100vw - 65px);
+    width: auto;
     height: 300px;
   }
 

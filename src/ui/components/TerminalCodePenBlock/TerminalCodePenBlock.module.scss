@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  //width: 100%;
+  height: 680px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1067px) {
+  .root {
+    flex-direction: column;
+    height: 100%;
+  }
+}
+

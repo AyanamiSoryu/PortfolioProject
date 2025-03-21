@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ArrowSvg from '../Icon/arrowGroup.svg';
 import ArrowButton from './ArrowButton';
 
 const meta: Meta<typeof ArrowButton> = {
@@ -14,7 +13,7 @@ type Story = StoryObj<typeof ArrowButton>;
 
 export const Linked: Story = {
   args: {
-    href: 'https://pornhub.com'
+    href: 'https://google.com'
     // 👇 The args you need here will depend on your component
   }
 };

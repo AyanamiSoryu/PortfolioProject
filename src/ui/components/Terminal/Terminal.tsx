@@ -1,269 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import gemini from '../../../agents/llm-model/gemini';
+import commands from '../../../data/terminalResponseMock/terminalResponseMock';
 import useHtmlElementRefSize from '../../../utils/hooks/useHtmlElementRefSize';
 import classNames from './Terminal.module.scss';
-
-const commands = {
-  help: [
-    ' GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)\n' +
-      "These shell commands are defined internally.  Type `help' to see this list.\n" +
-      "Type `help name' to find out more about the function `name'.\n" +
-      "Use `info bash' to find out more about the shell in general.\n" +
-      "Use `man -k' or `info' to find out more about commands not in this list.\n" +
-      '\n' +
-      'A star (*) next to a name means that the command is disabled.\n' +
-      '\n' +
-      'help [-dms]\njoke [just a programmer jokes]\nquote [just some quotes from random guys]' +
-      '\ninsult [just random insults from me personally]' +
-      '\nriddle [just to keep your brain keeping on]' +
-      '\n' +
-      '\nNext step is to make this console connected to ChatGPT'
-  ],
-  joke: [
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why do programmers always mix up Christmas and Halloween? Because Oct 31 equals Dec 25.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why was the JavaScript developer sad? Because he didn’t know how to `null` his feelings.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.',
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.',
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.',
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.',
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.',
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.',
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.',
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.',
-    'Why did the programmer go broke? Because he used up all his cache.',
-    'Why don’t programmers like nature? It has too many bugs.',
-    'Why did the developer go broke? He used up all his cache.',
-    'Why don’t programmers like to play hide and seek with dates? Because they can’t find a date.',
-    'Why did the programmer get stuck in the shower? Because the instructions said, “Lather, rinse, repeat.”',
-    'Why did the computer go to therapy? It had too many bytes of emotional baggage.'
-  ],
-
-  quote: [
-    'The only way to do great work is to love what you do. - Steve Jobs',
-    'Innovation distinguishes between a leader and a follower. - Steve Jobs',
-    'Stay hungry, stay foolish. - Steve Jobs',
-    'Quality is not an act, it is a habit. - Aristotle',
-    'We are what we repeatedly do. Excellence, then, is not an act, but a habit. - Aristotle',
-    'The best way to predict the future is to invent it. - Alan Kay',
-    'Simplicity is the ultimate sophistication. - Leonardo da Vinci',
-    "In three words I can sum up everything I've learned about life: it goes on. - Robert Frost",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    'The only true wisdom is in knowing you know nothing. - Socrates',
-    'To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.' +
-      ' - Ralph Waldo Emerson',
-    'Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill',
-    'The only thing necessary for the triumph of evil is for good men to do nothing. - Edmund Burke',
-    'Education is the most powerful weapon which you can use to change the world. - Nelson Mandela',
-    'A person who never made a mistake never tried anything new. - Albert Einstein',
-    "You miss 100% of the shots you don't take. - Wayne Gretzky",
-    'It does not matter how slowly you go as long as you do not stop. - Confucius',
-    'The journey of a thousand miles begins with one step. - Lao Tzu',
-    "I have not failed. I've just found 10,000 ways that won't work. - Thomas A. Edison",
-    "It's not the years in your life that count. It's the life in your years. - Abraham Lincoln",
-    'The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt',
-    "Believe you can and you're halfway there. - Theodore Roosevelt",
-    'The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela',
-    "Your time is limited, don't waste it living someone else's life. - Steve Jobs",
-    'Whoever is happy will make others happy too. - Anne Frank',
-    "You can't blame gravity for falling in love. - Albert Einstein",
-    'The greatest wealth is to live content with little. - Plato',
-    'Everything you can imagine is real. - Pablo Picasso',
-    'The best revenge is massive success. - Frank Sinatra',
-    'Spread love everywhere you go. Let no one ever come to you without leaving happier. - Mother Teresa',
-    'Life is a dream for the wise, a game for the fool, a comedy for the rich, a tragedy for the poor.' +
-      ' - Sholom Aleichem',
-    'It is during our darkest moments that we must focus to see the light. - Aristotle',
-    'I would rather die of passion than of boredom. - Vincent van Gogh',
-    'The only way to do great work is to love what you do. - Steve Jobs',
-    'Innovation distinguishes between a leader and a follower. - Steve Jobs',
-    'Stay hungry, stay foolish. - Steve Jobs',
-    'Quality is not an act, it is a habit. - Aristotle',
-    'We are what we repeatedly do. Excellence, then, is not an act, but a habit. - Aristotle',
-    'The best way to predict the future is to invent it. - Alan Kay',
-    'Simplicity is the ultimate sophistication. - Leonardo da Vinci',
-    "In three words I can sum up everything I've learned about life: it goes on. - Robert Frost",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    'The only true wisdom is in knowing you know nothing. - Socrates',
-    'To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment. ' +
-      '- Ralph Waldo Emerson',
-    'Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill',
-    'The only thing necessary for the triumph of evil is for good men to do nothing. - Edmund Burke',
-    'Education is the most powerful weapon which you can use to change the world. - Nelson Mandela',
-    'A person who never made a mistake never tried anything new. - Albert Einstein',
-    "You miss 100% of the shots you don't take. - Wayne Gretzky",
-    'It does not matter how slowly you go as long as you do not stop. - Confucius',
-    'The journey of a thousand miles begins with one step. - Lao Tzu',
-    "I have not failed. I've just found 10,000 ways that won't work. - Thomas A. Edison",
-    "It's not the years in your life that count. It's the life in your years. - Abraham Lincoln",
-    'The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt',
-    "Believe you can and you're halfway there. - Theodore Roosevelt",
-    'The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela',
-    "Your time is limited, don't waste it living someone else's life. - Steve Jobs",
-    'Whoever is happy will make others happy too. - Anne Frank',
-    "You can't blame gravity for falling in love. - Albert Einstein",
-    'The greatest wealth is to live content with little. - Plato',
-    'Everything you can imagine is real. - Pablo Picasso',
-    'The best revenge is massive success. - Frank Sinatra',
-    'Spread love everywhere you go. Let no one ever come to you without leaving happier. - Mother Teresa',
-    'Life is a dream for the wise, a game for the fool, a comedy for the rich, a tragedy for the poor. - ' +
-      'Sholom Aleichem',
-    'It is during our darkest moments that we must focus to see the light. - Aristotle',
-    'I would rather die of passion than of boredom. - Vincent van Gogh'
-  ],
-
-  insult: [
-    "Your code is so bad, even the compiler can't stand it.",
-    'You write code like a sloth crossing the road. Slow and full of errors.',
-    "You're not a bug, you're a feature no one asked for.",
-    'Your code is so ugly, it made my IDE cry.',
-    "I've seen better code from my cat walking across the keyboard.",
-    "You're a null pointer in a world of objects.",
-    'Your code has more issues than National Geographic.',
-    "Even Vim wouldn't save your code.",
-    'Your code is like a cryptic crossword without the clues.',
-    'Your code is the reason Waldo is hiding.',
-    "I've seen more organized chaos in a tornado.",
-    "Your code is so messy, even Marie Kondo couldn't fix it.",
-    "You must be a JavaScript file because you're full of errors.",
-    'If your code was a movie, it would be rated "U" for Unwatchable.',
-    'Your code is like a maze with no exit.',
-    "You're a memory leak in the system of life.",
-    "Your code is the reason aliens won't talk to us.",
-    "You're a runtime error in the language of life.",
-    'Your code is like a slow-loading website from the early 2000s.',
-    'Your codebase is a haunted house for developers.',
-    "You're the reason we can't have nice things in the codebase.",
-    'Your code is like a bad dream, I just want to wake up from it.',
-    "You're a syntax error in the grammar of life.",
-    'Your code is like a tangled web of confusion.',
-    "You're a segfault waiting to happen.",
-    'Your code is like a ticking time bomb, waiting to explode.',
-    "You're a NullPointerException in the array of life.",
-    'Your code is like spaghetti, except the noodles are broken and the sauce is on fire.',
-    "You're a bug in the system of life.",
-    'Your code is like a puzzle missing half the pieces.',
-    "You're a buffer overflow in the system of life.",
-    "Your code is like a Rubik's cube, except every side is wrong.",
-    "You're a divide-by-zero error in the arithmetic of life.",
-    "Your code is like a horror movie, I can't look away but I also want to run far, far away.",
-    "You're a syntax error in the code of life.",
-    "Your code is like a car crash, I can't help but stare in horror.",
-    "You're the reason we have code reviews.",
-    "Your code is like a dark alley, I don't want to go there alone.",
-    "You're a stack overflow waiting to happen.",
-    'Your code is like a black hole, sucking in all the light and joy.',
-    "You're a race condition in the system of life.",
-    'Your code is like a virus, infecting everything it touches.',
-    "You're a deadlock waiting to happen.",
-    "Your code is like a bad smell, I can't ignore it no matter how hard I try.",
-    "You're a memory corruption waiting to happen.",
-    'Your code is like a bad dream, I just want to wake up from it.',
-    "You're the reason we have version control.",
-    'Your code is like a haunted house, full of mysteries and horrors.',
-    "You're an infinite loop in the system of life.",
-    'Your code is like a nightmare, haunting my every waking moment.'
-  ],
-
-  riddle: [
-    'Why do programmers always mix up Christmas and Halloween? Because Oct 31 equals Dec 25.',
-    'What did the computer do at lunchtime? It had a byte.',
-    "What has keys but can't open locks? A keyboard.",
-    'What has a head, a tail, is brown, and has no legs? A penny.',
-    'What comes once in a minute, twice in a moment, but never in a thousand years? The letter "m".',
-    'What has to be broken before you can use it? An egg.',
-    "What has many keys but can't open a single lock? A piano.",
-    'What has a neck but no head? A bottle.',
-    'What has a bottom at the top? Your legs.',
-    'What gets wet while drying? A towel.',
-    'What belongs to you, but other people use it more than you? Your name.',
-    'What is full of holes but still holds water? A sponge.',
-    "What is always in front of you but can't be seen? The future.",
-    'What has cities, but no houses; forests, but no trees; and rivers, but no water? A map.',
-    "What has one eye but can't see? A needle.",
-    "What has teeth but can't bite? A comb.",
-    "What has hands but can't clap? A clock.",
-    'What can travel around the world while staying in a corner? A stamp.',
-    'What can you catch but not throw? A cold.',
-    'What comes down but never goes up? Rain.',
-    'What goes up but never comes down? Your age.',
-    'What is so delicate that saying its name breaks it? Silence.',
-    'What can be cracked, made, told, and played? A joke.',
-    "What has keys but can't open locks? A piano.",
-    'What can be swallowed but can also swallow you? Pride.',
-    'What has no beginning, end, or middle? A doughnut.',
-    'What has a head, a tail, is brown, and has no legs? A penny.',
-    "What has hands but can't write? A clock.",
-    'What has a bed but never sleeps? A river.',
-    'What is bought by the yard but worn by the foot? Carpet.',
-    'What has a neck but no head? A bottle.',
-    'What has to be broken before you can use it? An egg.',
-    "What has many keys but can't open a single lock? A piano.",
-    'What has a thumb and four fingers, but is not a hand? A glove.',
-    'What gets wetter as it dries? A towel.',
-    'What has cities, but no houses; forests, but no trees; and rivers, but no water? A map.',
-    "What has one eye but can't see? A needle.",
-    "What can't be put in a saucepan? Its lid.",
-    "What has keys but can't open locks? A keyboard.",
-    'What can you catch but not throw? A cold.',
-    'What can travel around the world while staying in a corner? A stamp.',
-    'What comes down but never goes up? Rain.',
-    'What goes up but never comes down? Your age.',
-    'What is so delicate that saying its name breaks it? Silence.',
-    'What can be cracked, made, told, and played? A joke.',
-    "What has keys but can't open locks? A piano.",
-    'What can be swallowed but can also swallow you? Pride.',
-    'What has no beginning, end, or middle? A doughnut.',
-    'What has a head, a tail, is brown, and has no legs? A penny.',
-    "What has hands but can't write? A clock.",
-    'What has a bed but never sleeps? A river.',
-    'What is bought by the yard but worn by the foot? Carpet.',
-    'What has a neck but no head? A bottle.'
-  ],
-
-  'fuck you': ['ok, never mind'],
-  'fuck off': ['ok, never mind']
-};
 
 type MessageType = {
   type: 'command' | 'response';
@@ -271,26 +12,30 @@ type MessageType = {
 };
 
 const Terminal: React.FC = () => {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const { width: containerWidth } = useHtmlElementRefSize(rootRef);
   const [inputValue, setInputValue] = useState<string>('');
   const [messages, setMessages] = useState<Array<MessageType>>([]);
 
-  const handleEnterDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const newArr = messages;
-    const newMessage: MessageType = { type: 'command', text: inputValue };
-    const commandItem = (commands as { [key: string]: string[] })[inputValue];
-    const newResponse: MessageType = {
-      type: 'response',
-      text: commandItem
-        ? commandItem[Math.floor(Math.random() * commandItem.length)]
-        : `${inputValue}: command not found`
-    };
+  const scrollToBottom = () => {
+    if (rootRef.current) {
+      rootRef.current.scrollTop = rootRef.current.scrollHeight;
+    }
+  };
+
+  useEffect(() => scrollToBottom);
+
+  const handleEnterDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      newArr.push(newMessage);
-      newArr.push(newResponse);
-      setMessages(newArr);
+      const newMessage: MessageType = { type: 'command', text: inputValue };
+      const commandItem = (commands as { [key: string]: string[] })[inputValue.toLowerCase()];
+      const newResponse: MessageType = {
+        type: 'response',
+        text: commandItem ? commandItem[Math.floor(Math.random() * commandItem.length)] : await gemini(inputValue)
+      };
+
+      setMessages((prevMessages) => [...prevMessages, newMessage, newResponse]);
       setInputValue('');
     }
   };
@@ -299,35 +44,30 @@ const Terminal: React.FC = () => {
     <div className={classNames.root}>
       <div className={classNames.terminalHeader} />
       <div className={classNames.terminal} ref={rootRef} onClick={() => inputRef.current && inputRef.current.focus()}>
-        {messages.map((item) => {
-          // const commandItem = (commands as { [key: string]: string[] })[item];
-          return (
-            <div key={uuidv4()}>
-              {item.type === 'command' ? (
-                <div>
-                  <span className={classNames.user}>
-                    user@Portfolio-Project
-                    <span className={classNames.userWhite}>
-                      :<span className={classNames.userBlue}>~</span>$
-                    </span>
+        {messages.map((item) => (
+          <div key={uuidv4()}>
+            {item.type === 'command' ? (
+              <div>
+                <span className={classNames.user}>
+                  user@Portfolio-Project
+                  <span className={classNames.userWhite}>
+                    :<span className={classNames.userBlue}>~</span>$
                   </span>
-                  <span className={classNames.input}>{item.text}</span>
-                </div>
-              ) : (
-                <div className={classNames.input} style={{ paddingLeft: 0 }}>
-                  {item.text.split('\n').map((line) => {
-                    return (
-                      <span className={classNames.input}>
-                        {line}
-                        {item.text.split('\n').length > 1 && <br />}
-                      </span>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          );
-        })}
+                </span>
+                <span className={classNames.input}>{item.text}</span>
+              </div>
+            ) : (
+              <div className={classNames.input} style={{ paddingLeft: 0 }}>
+                {item.text.split('\n').map((line) => (
+                  <span key={uuidv4()} className={classNames.input}>
+                    {line}
+                    {item.text.split('\n').length > 1 && <br />}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
         <span className={classNames.user}>
           user@Portfolio-Project
           <span className={classNames.userWhite}>

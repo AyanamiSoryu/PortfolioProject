@@ -26,9 +26,9 @@ const GreetingsComponent = (props: { children?: JSX.Element }) => {
       <div className={classNames.children}>{children}</div>
       <h2 className={classNames.hello}>hello!</h2>
       <p className={classNames.greet}>
-        i’m a digital designer experienced in creating visually strong interfaces, websites and design systems. i work
-        with complex products, analytical system interfaces, mobile and desktop applications and digital services for
-        the large businesses
+        i’m a digital developer experienced in creating visually strong interfaces, websites and complex systems. i work
+        with modern instruments, analytical system interfaces, mobile and web applications and digital services for the
+        large businesses
       </p>
       <div className={classNames.svg}>
         {links.map((link) => {

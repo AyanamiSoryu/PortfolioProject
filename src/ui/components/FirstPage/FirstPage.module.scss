@@ -15,11 +15,12 @@
 }
 
 .mobileChat {
+  //overflow: clip;
   width: 100%;
   position: absolute;
   display: flex;
   min-height: 600px;
-  transform: translate(1000px);
+  //transform: translate(1000px);
   transition: 500ms ease-out;
 }
 

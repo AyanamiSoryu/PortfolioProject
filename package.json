@@ -5,7 +5,6 @@
   "main": "index.js",
   "homepage": "git@git.drupal.org:project/PortfolioProject.git",
   "scripts": {
-    "eslint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx --cache",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "npx webpack serve",
     "build": "npx webpack",
@@ -26,7 +25,7 @@
     "@storybook/blocks": "^7.1.1",
     "@storybook/react": "^7.1.1",
     "@storybook/react-webpack5": "^7.1.1",
-    "@storybook/testing-library": "^0.2.0",
+    "@storybook/testing-library": "^0.2.2",
     "@svgr/webpack": "^8.0.1",
     "@types/react": "^18.0.38",
     "@types/react-dom": "^18.0.11",
@@ -60,8 +59,11 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "@storybook/preset-scss": "^1.0.3",
     "axios": "^1.6.8",
+    "dotenv": "^16.4.7",
+    "dotenv-webpack": "^8.1.0",
     "express": "^4.18.2",
     "openai": "^4.38.2",
     "react": "^18.2.0",

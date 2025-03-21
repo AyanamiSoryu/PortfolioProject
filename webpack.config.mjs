@@ -1,5 +1,6 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import Dotenv from 'dotenv-webpack';
 
 
 export default {
@@ -70,5 +71,5 @@ export default {
     plugins: [new HtmlWebpackPlugin({
         title: "Custom title",
         template: './public/index.html'
-    })],
+    }), new Dotenv()],
 };

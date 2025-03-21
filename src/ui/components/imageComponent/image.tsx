@@ -7,15 +7,15 @@ interface ImageAlias {
   loadingStatusCheck?: () => void;
 }
 
-interface Case {
-  id: string;
-  title: string;
-  description: string;
-  link?: string;
-  originWidth: number;
-  originHeight: number;
-  source: ImageAlias[];
-}
+// interface Case {
+//   id: string;
+//   title: string;
+//   description: string;
+//   link?: string;
+//   originWidth: number;
+//   originHeight: number;
+//   source: ImageAlias[];
+// }
 
 const Image = (props: ImageAlias) => (
   <img

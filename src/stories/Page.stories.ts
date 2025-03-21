@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { userEvent, within } from '@storybook/testing-library';
 
-import { Page } from './Page';
+import Page from './Page';
 
 const meta = {
   title: 'Example/Page',

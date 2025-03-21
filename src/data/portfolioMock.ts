@@ -21,7 +21,9 @@ const tallShrekImageAlias = {
 const largeShrekImageAlias = {
   width: 100,
   height: 100,
-  src: 'https://s.yimg.com/ny/api/res/1.2/NvAuQagDh1Li21Hq21DlGg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTMxNg--/https://media.zenfs.com/en/buzzfeed_articles_778/2fef0be25b6343c5dbf349561ab37a3c'
+  src:
+    'https://s.yimg.com/ny/api/res/1.2/NvAuQagDh1Li21Hq21DlGg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTMxNg--/' +
+    'https://media.zenfs.com/en/buzzfeed_articles_778/2fef0be25b6343c5dbf349561ab37a3c'
 };
 
 const tinyShrekImageAlias = {

@@ -1,0 +1,21 @@
+.button {
+  border-radius: 100px;
+  background: #FFF;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  //padding: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 300ms ease-out;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.04);
+  &:hover{
+    color: #282828;
+    background: #F5F5F5;
+  }
+  &:active{
+    color: #343434;
+    background: #F5F5F5;
+  }
+}

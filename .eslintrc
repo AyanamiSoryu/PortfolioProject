@@ -27,7 +27,7 @@
         "simple-import-sort/exports": "error",
         "import/prefer-default-export": "warn",
         "react/destructuring-assignment": 0,
-        "react/jsx-props-no-spreading": "warn",
+        "react/jsx-props-no-spreading": "off",
         "prettier/prettier": [
             "error",
             {

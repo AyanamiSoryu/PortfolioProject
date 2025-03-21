@@ -13,9 +13,7 @@ type ChatComponentProps = {
   title: string;
 };
 
-const yesFunc = (text: FormData) => {
-  console.log(text);
-};
+const yesFunc = () => null;
 
 const chat: ChatSpec = [
   {
