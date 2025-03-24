@@ -77,12 +77,12 @@ export default {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'public/', // Берём содержимое, но не саму папку
-          to: 'dist',
+          from: 'public', // Копируем только содержимое
+          to: './',
           globOptions: {
             ignore: [
-              '**/*.html', // Игнорируем все .html файлы
-              '**/*.txt'   // Игнорируем все .txt файлы
+              '**/*.html',
+              '**/*.txt'
             ]
           }
         }
