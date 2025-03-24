@@ -46,6 +46,20 @@
   //padding-left: 24px;
 }
 
+.stack {
+  color: #202020;
+  margin: 0;
+  font-family: Inter, serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px; /* 121.429% */
+  letter-spacing: -0.59px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  align-self: center;
+}
+
 //.svg {
 //  width: 80px;
 //  align-content: center;
@@ -167,7 +181,8 @@
   //padding-top: 10px;
   overflow-wrap: break-word;
   position: relative;
-  align-self: flex-start;
+  align-self: center;
+  //align-self: flex-start;
   //max-width: 80%;
   color: #868992;
   font-family: Inter, serif;

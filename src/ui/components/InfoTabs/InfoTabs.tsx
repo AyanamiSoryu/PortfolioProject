@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import greetingsClassNames from '../GreetingsComponent/GreetingsComponent.module.scss';
 import CSSSvg from '../Icon/css-svgrepo-com.svg';
 import HTMLSvg from '../Icon/html-svgrepo-com.svg';
 import JavaScriptSvg from '../Icon/java-script-svgrepo-com.svg';
@@ -15,9 +14,7 @@ const InfoTabs = () => {
   return (
     <div className={classNames.root}>
       <div className={classNames.firstTab}>
-        <h2 className={greetingsClassNames.hello} style={{ paddingTop: '20px' }}>
-          stack
-        </h2>
+        <h2 className={classNames.stack}>stack</h2>
         <div className={classNames.stackNames}>
           <h3
             className={classNames.h3}

@@ -23,6 +23,7 @@
   //flex-wrap: nowrap;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
+  //width: 100%;
 }
 
 .terminal::-webkit-scrollbar {
@@ -36,38 +37,55 @@
 }
 
 .input {
-  text-wrap: normal;
-  caret-color: transparent;
-  caret-shape: block;
+  display: inline;
+  min-width: 10px;
+  max-width: 100%;
+  word-break: break-word;
+  white-space: pre-wrap; /* Обеспечивает перенос строк */
+  overflow-wrap: break-word;
+  outline: none;
   background: none;
   border: none;
-  border-radius: 0;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   color: #a9c6c1;
   font-family: 'Ubuntu Mono', monospace;
   font-size: 18px;
   padding-left: 12px;
+  caret-color: transparent;
+  -webkit-user-modify: read-write-plaintext-only; /* Отключаем форматирование в WebKit */
+
 }
+
+//.input::after {
+//  content: ' ';
+//  display: inline-block;
+//  width: 1px;
+//  background: white;
+//  margin-left: 2px;
+//  caret-color: transparent;
+//}
 
 .user {
   font-family: "Ubuntu Mono B", monospace; /* Шрифт терминала */
   font-size: 18px; /* Размер текста */
   color: #26a719; /* Цвет команд */
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .userWhite {
   font-family: "Ubuntu Mono B", monospace; /* Шрифт терминала */
   font-size: 18px; /* Размер текста */
   color: #a9c6c1;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .userBlue {
   font-family: "Ubuntu Mono B", monospace; /* Шрифт терминала */
   font-size: 18px; /* Размер текста */
   color: #0089f6;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .terminal__content {
@@ -97,6 +115,7 @@
 
 .blinkingCaret {
   animation: blink-caret 1s step-end infinite;
+  display: inline-block;
 }
 
 @keyframes blink-caret {
@@ -107,26 +126,6 @@
     color: #eeeeee; /* Цвет каретки */
   }
 }
-
-//@media screen and (max-width: 988px) {
-//  .root {
-//    margin: 12px;
-//  }
-//}
-
-//@media screen and (max-width: 1067px) {
-//  //.terminalHeader {
-//  //  height: 100px;
-//  //}
-//
-//  .root {
-//    width: auto;
-//  }
-//
-//  .terminal {
-//    height: 500px;
-//  }
-//}
 
 @media screen and (max-width: 988px) {
   .root {
