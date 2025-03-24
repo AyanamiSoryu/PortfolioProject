@@ -5,7 +5,7 @@ import generateUniqClientKey from '../utils/generateUniqClientKey/generateUniqCl
 const handlePrompt = async (prompt: string) => {
   try {
     const clientKey = generateUniqClientKey();
-    const serverURL = process.env.SERVER_URL || 'http://localhost:3000';
+    const serverURL = process.env.SERVER_URL || 'https://portfolio-server-eight-ashy.vercel.app/';
 
     const response = await axios.post(`${serverURL}/api/gemini`, {
       prompt,
