@@ -1,6 +1,7 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from 'dotenv-webpack';
+import CopyWebpackPlugin from "copy-webpack-plugin";
 
 
 export default {
@@ -71,5 +72,19 @@ export default {
     plugins: [new HtmlWebpackPlugin({
         title: "Custom title",
         template: './public/index.html'
-    }), new Dotenv()],
+    }),
+        new Dotenv() ,
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'public', to: 'dist', globOptions: {
+                    ignore: [
+                      "./*.html",
+                      "./*.txt",
+                      "*.txt",
+                      "*.html"
+                    ]
+                    } }
+            ]
+        },),
+    ],
 };
