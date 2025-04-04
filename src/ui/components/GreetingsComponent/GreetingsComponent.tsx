@@ -2,24 +2,29 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import Cv from '../Icon/CVIcnon.svg';
-import Info from '../Icon/infoIcon.svg';
+import GitHub from '../Icon/gitHub.svg';
 import Linkedin from '../Icon/linkedInIcon.svg';
-import Instagram from '../Icon/telegramIcon.svg';
+import Telegram from '../Icon/telegramIcon.svg';
 import Timezones from '../Icon/timeZonesIcon.svg';
 import LinkComponent from '../LinkImage/LinkComponent';
 import classNames from './GreetingsComponent.module.scss';
 
 const links = [
-  { id: 'Info', icon: <Info /> },
-  { id: 'Timezones', icon: <Timezones /> },
-  { id: 'Cv', icon: <Cv />, downloadName: 'google.com' },
-  { id: 'Instagram', icon: <Instagram /> },
-  { id: 'Linkedin', icon: <Linkedin /> }
+  { id: 'GitHub', icon: <GitHub />, buttonLink: 'https://github.com/AyanamiSoryu' },
+  { id: 'Timezones', icon: <Timezones />, buttonLink: 'https://www.timezones.digital/' },
+  {
+    id: 'Cv',
+    icon: <Cv />,
+    downloadName: 'CV',
+    buttonLink: 'https://drive.google.com/uc?export=download&id=1afXfpcpnXLJE65KlOxrtiLMAuO9ASCQt\n'
+  },
+  { id: 'Telegram', icon: <Telegram />, buttonLink: 'https://t.me/ayanamisoryu' },
+  { id: 'Linkedin', icon: <Linkedin />, buttonLink: 'https://www.linkedin.com/in/ilya-nikolskiy-4a2818257/' }
 ];
 
 const GreetingsComponent = (props: { children?: JSX.Element }) => {
   const { children } = props;
-  const [selectedId, setSelectedId] = useState<string>('Info');
+  const [selectedId, setSelectedId] = useState<string>('GitHub');
 
   return (
     <div className={classNames.root}>
@@ -41,11 +46,19 @@ const GreetingsComponent = (props: { children?: JSX.Element }) => {
                 selected={selectedId}
                 onHover={setSelectedId}
                 downloadName={link.downloadName}
+                href={link.buttonLink || 'google.com'}
               />
             );
           }
           return (
-            <LinkComponent key={uuidv4()} id={link.id} icon={link.icon} selected={selectedId} onHover={setSelectedId} />
+            <LinkComponent
+              key={uuidv4()}
+              id={link.id}
+              icon={link.icon}
+              selected={selectedId}
+              onHover={setSelectedId}
+              href={link.buttonLink || 'google.com'}
+            />
           );
         })}
       </div>

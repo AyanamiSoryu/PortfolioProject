@@ -69,12 +69,12 @@ const InfoTabs = () => {
         </div>
         <div className={classNames.iconsReact} onMouseEnter={() => setIconSelected('react')}>
           <div className={classNames.svg}>
-            <ReactSVG fill={selectedIcon === 'react' ? '#7ddfff' : 'null'} />
+            <ReactSVG fill={selectedIcon === 'react' ? '#7ddfff' : '#000000'} />
           </div>
         </div>
         <div className={classNames.iconsRedux} onMouseEnter={() => setIconSelected('redux')}>
           <div className={classNames.svg}>
-            <ReduxSvg fill={selectedIcon === 'redux' ? '#764abc' : 'null'} />
+            <ReduxSvg fill={selectedIcon === 'redux' ? '#764abc' : '#000000'} />
           </div>
         </div>
         <div
@@ -82,7 +82,7 @@ const InfoTabs = () => {
           onMouseEnter={() => setIconSelected('type')}
           onMouseLeave={() => setIconSelected('')}>
           <div className={classNames.svg}>
-            <TypeScriptSvg fill={selectedIcon === 'type' ? '#ffffff' : 'null'} />
+            <TypeScriptSvg fill={selectedIcon === 'type' ? '#ffffff' : '#000000'} />
           </div>
         </div>
         <div
@@ -90,12 +90,12 @@ const InfoTabs = () => {
           onMouseEnter={() => setIconSelected('html')}
           onMouseLeave={() => setIconSelected('')}>
           <div className={classNames.svg}>
-            <HTMLSvg fill={selectedIcon === 'html' ? '#ffffff' : 'null'} />
+            <HTMLSvg fill={selectedIcon === 'html' ? '#ffffff' : '#000000'} />
           </div>
         </div>
         <div className={classNames.iconsCSS} onMouseEnter={() => setIconSelected('css')}>
           <div className={classNames.svg}>
-            <CSSSvg fill={selectedIcon === 'css' ? '#ffffff' : 'null'} />
+            <CSSSvg fill={selectedIcon === 'css' ? '#ffffff' : '#000000'} />
           </div>
         </div>
       </div>

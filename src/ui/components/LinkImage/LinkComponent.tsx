@@ -28,8 +28,6 @@ const SquareButton: React.FC<SquareButtonProps> = (props) => {
   const downloadProps = isDownload ? { download: props.downloadName } : {};
   const additionalProps = { ...linkProps, ...downloadProps };
 
-  // console.log(props, 'WWOOOOOOOOOOOOOOOOOOWWWWWWWWWWWWW');
-
   const ifClassExist = requstedID === buttonId ? classNames.focused : classNames.root;
 
   if (requstedID === buttonId) {
@@ -61,6 +59,3 @@ const SquareButton: React.FC<SquareButtonProps> = (props) => {
 };
 
 export default SquareButton;
-
-// <SquareButton icon={<ProfileIcon />} />;
-// <SquareButton icon={<img />} />;
